@@ -123,9 +123,12 @@
 
 <header class="bg-white/95 backdrop-blur-md shadow-md sticky top-0 z-50 no-print">
     <nav class="container mx-auto px-3 md:px-4 h-16 flex items-center gap-2">
-        <a href="http://tourmaker.kr" target="_blank" rel="noopener" class="shrink-0">
-            <img src="assets/images/tourmaker-logo.png" alt="Tourmaker" class="h-7 md:h-8">
-        </a>
+        <div class="flex items-center gap-2 shrink-0">
+            <a href="http://tourmaker.kr" target="_blank" rel="noopener">
+                <img src="assets/images/tourmaker-logo.png" alt="Tourmaker" class="h-7 md:h-8">
+            </a>
+            <span id="d-day-badge" class="hidden bg-cyan-600 text-white text-[10px] px-2 py-0.5 rounded-full font-bold whitespace-nowrap"></span>
+        </div>
         <div class="flex-1 min-w-0 overflow-x-auto no-scrollbar">
             <div class="flex items-center gap-0.5 md:gap-4 whitespace-nowrap pr-2">
                 <a href="#home" class="px-2.5 md:px-3 py-2 text-sm font-bold text-slate-600 hover:text-cyan-600 rounded-lg">홈</a>
@@ -352,7 +355,7 @@
                         <div><h3 class="font-bold text-2xl text-slate-800">동화대 교류 및 시내 탐방</h3><p class="text-emerald-600 font-medium">상해</p></div>
                     </div>
                     <div class="space-y-6">
-                        <div class="relative pl-8 border-l-2 border-emerald-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-cyan-600"></div><h4 class="font-bold text-lg">동화대학교 학교 소개</h4><p class="text-slate-500 text-sm mt-1 mb-3">학교 관계자 브리핑으로 캠퍼스·교육 특색을 먼저 파악합니다.</p><img src="assets/images/venue-campus.jpg" alt="동화대학교 캠퍼스" class="schedule-thumb"></div>
+                        <div class="relative pl-8 border-l-2 border-emerald-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-cyan-600"></div><h4 class="font-bold text-lg">동화대학교 학교 소개</h4><p class="text-slate-500 text-sm mt-1 mb-3">학교 관계자 브리핑으로 캠퍼스·교육 특색을 먼저 파악합니다.</p><img src="assets/images/venue-donghua.jpg" alt="동화대학교 캠퍼스" class="schedule-thumb"></div>
                         <div class="relative pl-8 border-l-2 border-emerald-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-emerald-500"></div><h4 class="font-bold text-lg">현지 학생과 소규모 국제교류</h4><p class="text-slate-500 text-sm mt-1">소규모 세션으로 질문·대화가 오가는 실질적인 학생 교류를 진행합니다.</p></div>
                         <div class="relative pl-8 border-l-2 border-emerald-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-orange-400"></div><h4 class="font-bold text-lg">중식 · 자유식</h4></div>
                         <div class="relative pl-8 border-l-2 border-emerald-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-amber-500"></div><h4 class="font-bold text-lg">상해 시내 자율일정</h4><p class="text-slate-500 text-sm mt-1">교류 이후 여유 있는 자율 탐방으로 하루 만족도를 높입니다.</p></div>
@@ -402,7 +405,7 @@
                 <div class="p-5"><h3 class="font-bold text-lg text-slate-800">레노버 미래센터</h3><p class="text-sm text-slate-600 mt-2">온디바이스 AI와 DX 솔루션을 중심으로, 하드웨어 기업의 AI 전환 전략을 관계자 설명과 함께 살펴봅니다.</p></div>
             </article>
             <article class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
-                <img src="assets/images/venue-campus.jpg" alt="동화대학교" class="w-full h-44 object-cover">
+                <img src="assets/images/venue-donghua.jpg" alt="동화대학교" class="w-full h-44 object-cover">
                 <div class="p-5"><h3 class="font-bold text-lg text-slate-800">동화대학교 Academic Visit</h3><p class="text-sm text-slate-600 mt-2">학교 관계자 소개와 현지 학생과의 소규모 국제교류 뒤 자율일정을 이어, 참가자 만족도가 높았던 하루로 평가받았습니다.</p></div>
             </article>
         </div>
@@ -466,9 +469,9 @@
             </div>
             <div class="grid lg:grid-cols-2 gap-8 items-start">
                 <div class="grid grid-cols-2 gap-3">
-                    <img src="assets/images/venue-campus.jpg" alt="동화대 캠퍼스" class="col-span-2 w-full h-56 object-cover rounded-2xl shadow-md">
+                    <img src="assets/images/venue-donghua.jpg" alt="동화대학교 정문" class="col-span-2 w-full h-56 object-cover rounded-2xl shadow-md">
                     <img src="assets/images/donghua-logo.png" alt="동화대학교 로고" class="w-full h-36 object-contain bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
-                    <img src="assets/images/venue-hotel.jpg" alt="스마트 학습 공간 이미지" class="w-full h-36 object-cover rounded-xl shadow-sm">
+                    <img src="assets/images/venue-donghua-campus.jpg" alt="동화대학교 송장 캠퍼스" class="w-full h-36 object-cover rounded-xl shadow-sm">
                 </div>
                 <div>
                     <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-5 mb-5">
@@ -914,21 +917,34 @@ function setDDayLogic() {
     const untilStart = ymdDiffDays(EVENT_START, today);
     const sinceStart = ymdDiffDays(today, EVENT_START);
     const afterEnd = ymdDiffDays(today, EVENT_END);
+    const badge = document.getElementById('d-day-badge');
     const heroDynamicMsg = document.getElementById('hero-dynamic-msg');
     const heroDate = document.getElementById('hero-date');
-    if (untilStart > 0) return;
-    if (afterEnd <= 0) {
+    if (!badge) return;
+    if (untilStart > 0) {
+        badge.textContent = `D-${untilStart}`;
+        badge.className = 'bg-blue-600 text-white text-[10px] px-2 py-0.5 rounded-full font-bold whitespace-nowrap animate-pulse';
+    } else if (afterEnd <= 0) {
         const currentDay = sinceStart + 1;
-        heroDate.classList.add('hidden');
-        heroDynamicMsg.innerHTML = `현재 <strong>${currentDay}일차</strong> 여정이 진행 중입니다.`;
-        heroDynamicMsg.classList.remove('hidden');
+        badge.textContent = `${currentDay}일차`;
+        badge.className = 'bg-orange-500 text-white text-[10px] px-2 py-0.5 rounded-full font-bold whitespace-nowrap animate-pulse';
+        heroDate?.classList.add('hidden');
+        if (heroDynamicMsg) {
+            heroDynamicMsg.innerHTML = `현재 <strong>${currentDay}일차</strong> 여정이 진행 중입니다.`;
+            heroDynamicMsg.classList.remove('hidden');
+        }
     } else {
-        heroDate.classList.add('hidden');
-        heroDynamicMsg.innerHTML = '모든 여정이 종료되었습니다.<br>좋은 추억으로 오래 간직되길 바랍니다.';
-        heroDynamicMsg.classList.remove('text-cyan-300');
-        heroDynamicMsg.classList.add('text-slate-300');
-        heroDynamicMsg.classList.remove('hidden');
+        badge.textContent = '여정 종료';
+        badge.className = 'bg-slate-500 text-white text-[10px] px-2 py-0.5 rounded-full font-bold whitespace-nowrap';
+        heroDate?.classList.add('hidden');
+        if (heroDynamicMsg) {
+            heroDynamicMsg.innerHTML = '모든 여정이 종료되었습니다.<br>좋은 추억으로 오래 간직되길 바랍니다.';
+            heroDynamicMsg.classList.remove('text-cyan-300');
+            heroDynamicMsg.classList.add('text-slate-300');
+            heroDynamicMsg.classList.remove('hidden');
+        }
     }
+    badge.classList.remove('hidden');
 }
 async function fetchWidgets() {
     try {
