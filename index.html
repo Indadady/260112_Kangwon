@@ -460,6 +460,7 @@
                 </div>
             </article>
             <article class="bg-violet-50 rounded-2xl border border-violet-100 overflow-hidden shadow-sm">
+                <img src="assets/images/venue-wisdom-rose.jpg" alt="포동 위즈덤로즈 호텔 전경" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <p class="text-xs font-bold text-violet-700 mb-1">2~4일차 · 상해 포동</p>
                     <h3 class="font-bold text-lg text-slate-800 mb-1">위즈덤로즈 호텔</h3>
@@ -535,8 +536,8 @@
         </div>
         <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="bg-white p-6 rounded-2xl shadow-md border border-blue-100 flex flex-col">
-                <h3 class="font-bold text-lg text-slate-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-cloud-sun text-blue-500"></i> 주간 날씨 예보 (상해)</h3>
-                <div id="weather-container" class="flex gap-3 overflow-x-auto no-scrollbar pb-2 mb-4"><div class="text-center text-sm text-slate-500 w-full py-4">날씨 정보를 불러오는 중...</div></div>
+                <h3 class="font-bold text-lg text-slate-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-cloud-sun text-blue-500"></i> 5일 날씨 예보 (상해)</h3>
+                <div id="weather-container" class="grid grid-cols-5 gap-2 mb-4"><div class="text-center text-sm text-slate-500 col-span-5 py-4">날씨 정보를 불러오는 중...</div></div>
                 <div class="mt-auto bg-blue-50 p-3 rounded-xl border border-blue-100 text-xs text-slate-700">
                     <strong>옷차림:</strong> 1월 상해·항주는 평균 2~10도로 쌀쌀합니다. <span class="text-blue-600 font-bold">두꺼운 외투와 방한용품</span>을 준비하고, 실내 에어컨 대비 레이어드 복장을 권장합니다.
                 </div>
@@ -961,18 +962,18 @@ function setDDayLogic() {
 }
 async function fetchWidgets() {
     try {
-        const weatherRes = await fetch('https://api.open-meteo.com/v1/forecast?latitude=31.2304&longitude=121.4737&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FShanghai');
+        const weatherRes = await fetch('https://api.open-meteo.com/v1/forecast?latitude=31.2304&longitude=121.4737&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FShanghai&forecast_days=5');
         const weatherData = await weatherRes.json();
         const weatherMap = {0:'☀️',1:'🌤️',2:'⛅',3:'☁️',45:'🌫️',48:'🌫️',51:'🌧️',53:'🌧️',55:'🌧️',61:'☔',63:'☔',65:'☔',71:'❄️',73:'❄️',75:'❄️',95:'⛈️'};
         const container = document.getElementById('weather-container');
         const codes = weatherData.daily.weather_code || weatherData.daily.weathercode || [];
         container.innerHTML = '';
-        for (let i = 0; i < Math.min(7, (weatherData.daily.time || []).length); i++) {
+        for (let i = 0; i < Math.min(5, (weatherData.daily.time || []).length); i++) {
             const dateStr = weatherData.daily.time[i].substring(5).replace('-', '/');
             const icon = weatherMap[codes[i]] || '🌥️';
             const tMax = Math.round(weatherData.daily.temperature_2m_max[i]);
             const tMin = Math.round(weatherData.daily.temperature_2m_min[i]);
-            container.innerHTML += `<div class="min-w-[70px] bg-white border border-slate-100 rounded-xl p-2 text-center shadow-sm flex-shrink-0"><div class="text-[10px] text-slate-500 font-bold mb-1">${dateStr}</div><div class="text-2xl mb-1">${icon}</div><div class="text-[10px] font-bold"><span class="text-red-500">${tMax}°</span> <span class="text-blue-500">${tMin}°</span></div></div>`;
+            container.innerHTML += `<div class="bg-white border border-slate-100 rounded-xl p-2 text-center shadow-sm"><div class="text-[10px] text-slate-500 font-bold mb-1">${dateStr}</div><div class="text-xl md:text-2xl mb-1">${icon}</div><div class="text-[10px] font-bold"><span class="text-red-500">${tMax}°</span> <span class="text-blue-500">${tMin}°</span></div></div>`;
         }
     } catch (e) {
         document.getElementById('weather-container').innerHTML = '<div class="text-xs text-red-500 w-full text-center">날씨 정보를 불러오지 못했습니다.</div>';
