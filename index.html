@@ -14,7 +14,7 @@
     <meta name="description" content="2026 강원대학교 글로벌미래융합대학 글로컬 패스파인더 · 항주·상해 4박5일 AI 산업 탐방 스마트 가이드북">
     <meta property="og:title" content="강원대 글로벌 패스파인더 · 상해/항주 AI 가이드북">
     <meta property="og:description" content="2026.01.12~01.16 · KE107/KE892 · 알리바바·플라이주·바이두·레노버·동화대">
-    <meta property="og:image" content="https://indadady.github.io/260112_Kangwon/assets/images/alibaba1.jpg">
+    <meta property="og:image" content="https://indadady.github.io/260112_Kangwon/assets/images/hero.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
     <style>
         body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; color: #1e293b; word-break: keep-all; }
         .hero-bg {
-            background: linear-gradient(rgba(0, 26, 53, 0.72), rgba(0, 64, 152, 0.55)), url('assets/images/alibaba1.jpg');
+            background: linear-gradient(rgba(0, 26, 53, 0.72), rgba(0, 64, 152, 0.55)), url('assets/images/hero.jpg');
             background-size: cover; background-position: center; background-attachment: fixed;
         }
         @media (max-width: 768px){ .hero-bg { background-attachment: scroll; } }
@@ -76,6 +76,7 @@
             <a href="http://tourmaker.kr" target="_blank" rel="noopener">
                 <img src="assets/images/tourmaker-logo.png" alt="Tourmaker" class="h-8">
             </a>
+            <img src="assets/images/kangwon-logo.jpg" alt="강원대학교" class="h-9 md:h-10 w-auto object-contain">
             <span id="d-day-badge" class="hidden bg-cyan-600 text-white text-[10px] px-2 py-0.5 rounded-full font-bold"></span>
         </div>
         <div class="flex-1 overflow-x-auto no-scrollbar ml-4 md:ml-8">
@@ -86,6 +87,7 @@
                 <a href="#map-section" class="px-3 py-2 text-sm font-bold text-purple-600 hover:text-purple-800 rounded-lg"><i class="fa-solid fa-map-location-dot mr-1"></i>동선지도</a>
                 <a href="#schedule" class="px-3 py-2 text-sm font-bold text-slate-800 hover:text-cyan-600 rounded-lg">세부일정</a>
                 <a href="#places" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-cyan-600 rounded-lg">탐방지</a>
+                <a href="#university" class="px-3 py-2 text-sm font-bold text-emerald-700 hover:text-emerald-900 rounded-lg">대학교류</a>
                 <a href="#video" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-cyan-600 rounded-lg">영상</a>
                 <a href="#widgets" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-cyan-600 rounded-lg">날씨/환율</a>
                 <a href="#china-prep" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-cyan-600 rounded-lg">알리페이</a>
@@ -112,17 +114,17 @@
     </div>
 </div>
 
-<section id="home" class="hero-bg min-h-[70vh] flex items-center justify-center text-center px-4 relative">
+<section id="home" class="hero-bg min-h-[72vh] flex items-center justify-center text-center px-4 relative">
     <div class="animate-fade-in-up text-white z-10 w-full max-w-4xl">
-        <div class="bg-white/95 px-5 py-2.5 rounded-full text-sm md:text-base font-bold mb-6 inline-flex items-center gap-2.5 shadow-xl text-slate-800 border border-white/50">
-            강원대학교 글로벌미래융합대학
+        <div class="inline-block bg-white px-4 py-2 rounded-2xl shadow-xl mb-6">
+            <img src="assets/images/kangwon-logo.jpg" alt="강원대학교" class="h-14 md:h-16 w-auto object-contain mix-blend-multiply">
         </div>
-        <p class="text-yellow-300 font-semibold text-lg mb-2 tracking-wide">2026 글로벌 패스파인더 프로그램</p>
-        <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-2xl font-[Nanum_Myeongjo]">중국 AI 혁신,<br><span class="text-cyan-300 mt-2 block">그 현장으로</span></h1>
-        <div id="hero-message-container" class="mt-6 bg-black/40 backdrop-blur-sm rounded-2xl p-5 inline-block border border-white/20 max-w-2xl">
-            <p id="hero-date" class="text-lg md:text-xl text-slate-200 font-medium">2026.01.12(월) ~ 01.16(금) · 4박 5일</p>
-            <p class="text-slate-300 text-sm mt-2">항주 · 상해 · 자유전공 학생 17명 + 인솔 1명</p>
-            <p id="hero-dynamic-msg" class="text-cyan-300 font-bold mt-2 text-sm md:text-base hidden"></p>
+        <p class="text-yellow-300 font-semibold text-base md:text-lg mb-2 tracking-wide">2026 강원대학교 글로벌 패스파인더</p>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-2xl font-[Nanum_Myeongjo]">중국 AI 혁신 생태계,<br><span class="text-cyan-300 mt-2 block">현장으로 연결하는 실증형 탐방</span></h1>
+        <div id="hero-message-container" class="mt-6 bg-black/45 backdrop-blur-sm rounded-2xl p-5 inline-block border border-white/20 max-w-3xl text-left md:text-center">
+            <p id="hero-date" class="text-lg md:text-xl text-slate-100 font-medium text-center">2026.01.12(월) ~ 01.16(금) · 항주 · 상해 · 4박 5일</p>
+            <p class="text-slate-200 text-sm mt-3 leading-relaxed">강의실 이론을 넘어, 알리바바·바이두·레노버와 동화대학교 교류를 통해 <strong class="text-white">데이터가 현실을 바꾸는 방식</strong>을 직접 확인하는 디지털 제안형 프로그램입니다.</p>
+            <p id="hero-dynamic-msg" class="text-cyan-300 font-bold mt-2 text-sm md:text-base hidden text-center"></p>
         </div>
     </div>
 </section>
@@ -150,7 +152,7 @@
             <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm">
                 <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center mb-4 text-3xl">🎓</div>
                 <h3 class="text-xl font-bold text-slate-800 mb-2">전문 지식 심화 &amp; 교류</h3>
-                <p class="text-slate-600 text-sm leading-relaxed mb-4">현지 IT·AI 특강과 동화대학교 학생 교류로 이론적 배경과 글로벌 네트워크를 함께 쌓습니다.</p>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">현지 IT·AI 특강과 상해 동화대학교(Donghua University) 학술 교류로, 디자인·경영·AI가 결합된 미래 융합 교육의 방향성을 확인합니다.</p>
                 <span class="inline-block bg-emerald-600 text-white text-xs px-2 py-1 rounded font-bold">특강 · 대학 교류</span>
             </div>
         </div>
@@ -264,7 +266,7 @@
                     </div>
                     <div class="space-y-6">
                         <div class="relative pl-8 border-l-2 border-cyan-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-cyan-600"></div><h4 class="font-bold text-lg">인천 출발 · 항주 샤오산공항 도착</h4><p class="text-slate-500 text-sm mt-1">대한항공 KE107 · 가이드 미팅 후 중식(사천요리)</p></div>
-                        <div class="relative pl-8 border-l-2 border-cyan-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-indigo-500"></div><h4 class="font-bold text-lg">항저우 류샤오롱 라이프 전시관</h4><p class="text-slate-500 text-sm mt-1 mb-3">관계자 설명 및 통역</p><img src="assets/images/liuxiaolong.jpg" alt="류샤오롱 전시관" class="schedule-thumb"></div>
+                        <div class="relative pl-8 border-l-2 border-cyan-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-indigo-500"></div><h4 class="font-bold text-lg">항저우 류샤오롱 라이프 전시관</h4><p class="text-slate-500 text-sm mt-1 mb-3">관계자 설명 및 통역</p><img src="assets/images/venue-alibaba-exhibit.jpg" alt="류샤오롱 전시관" class="schedule-thumb"></div>
                         <div class="relative pl-8 border-l-2 border-cyan-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-emerald-500"></div><h4 class="font-bold text-lg">친청리 허마 스마트마트 체험</h4><p class="text-slate-500 text-sm mt-1">안면인식 결제 · 자동 물류 · O2O 신유통</p></div>
                         <div class="relative pl-8 border-l-2 border-transparent"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-slate-400"></div><h4 class="font-bold text-lg">항주 플라이주(FlyZoo) 호텔 숙박</h4><p class="text-slate-500 text-sm mt-1">알리바바 AI 무인화 호텔 · 안면인식 체크인</p></div>
                     </div>
@@ -275,10 +277,10 @@
                         <div><h3 class="font-bold text-2xl text-slate-800">항주 AI 핵심 &amp; 상해 이동</h3><p class="text-indigo-600 font-medium">항주 → 상해</p></div>
                     </div>
                     <div class="space-y-6">
-                        <div class="relative pl-8 border-l-2 border-indigo-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-cyan-600"></div><h4 class="font-bold text-lg">알리바바 본사 공식 방문</h4><p class="text-slate-500 text-sm mt-1 mb-3">시시 캠퍼스 · 관계자 설명 및 통역</p><div class="flex flex-wrap gap-3"><img src="assets/images/alibaba1.jpg" alt="알리바바" class="schedule-thumb"><img src="assets/images/alibaba-talk.jpg" alt="알리바바 강의" class="schedule-thumb"></div></div>
-                        <div class="relative pl-8 border-l-2 border-indigo-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-purple-500"></div><h4 class="font-bold text-lg">스마트버스 탑승</h4><p class="text-slate-500 text-sm mt-1">L4 자율주행 12인승 미니버스 체험</p></div>
+                        <div class="relative pl-8 border-l-2 border-indigo-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-cyan-600"></div><h4 class="font-bold text-lg">알리바바 본사 공식 방문</h4><p class="text-slate-500 text-sm mt-1 mb-3">시시 캠퍼스 · 관계자 설명 및 통역</p><div class="flex flex-wrap gap-3"><img src="assets/images/venue-alibaba-atrium.jpg" alt="알리바바" class="schedule-thumb"><img src="assets/images/venue-alibaba-lobby.jpg" alt="알리바바 강의" class="schedule-thumb"></div></div>
+                        <div class="relative pl-8 border-l-2 border-indigo-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-purple-500"></div><h4 class="font-bold text-lg">스마트버스 탑승</h4><p class="text-slate-500 text-sm mt-1 mb-3">L4 자율주행 12인승 미니버스 체험</p><img src="assets/images/venue-smartbus.jpg" alt="스마트버스" class="schedule-thumb"></div>
                         <div class="relative pl-8 border-l-2 border-indigo-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-orange-500"></div><h4 class="font-bold text-lg">항주 특색요리(동파육) 후 상해 이동</h4><p class="text-slate-500 text-sm mt-1">전용차 이동</p></div>
-                        <div class="relative pl-8 border-l-2 border-indigo-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-emerald-500"></div><h4 class="font-bold text-lg">바이두 ApolloPark 무인운전 체험</h4><p class="text-slate-500 text-sm mt-1 mb-3">L4 자율주행 현장 탑승</p><img src="assets/images/baidu.jpg" alt="바이두" class="schedule-thumb"></div>
+                        <div class="relative pl-8 border-l-2 border-indigo-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-emerald-500"></div><h4 class="font-bold text-lg">바이두 ApolloPark 무인운전 체험</h4><p class="text-slate-500 text-sm mt-1 mb-3">L4 자율주행 현장 탑승</p><img src="assets/images/venue-mobility.jpg" alt="바이두" class="schedule-thumb"></div>
                         <div class="relative pl-8 border-l-2 border-transparent"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-slate-400"></div><h4 class="font-bold text-lg">상해 포동 호텔 투숙</h4><p class="text-slate-500 text-sm mt-1">포동 베스트 혹은 동급</p></div>
                     </div>
                 </div>
@@ -288,11 +290,11 @@
                         <div><h3 class="font-bold text-2xl text-slate-800">상해 IT 솔루션 및 전문 강의</h3><p class="text-violet-600 font-medium">상해</p></div>
                     </div>
                     <div class="space-y-6">
-                        <div class="relative pl-8 border-l-2 border-violet-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-cyan-600"></div><h4 class="font-bold text-lg">레노버(Lenovo) 미래센터</h4><p class="text-slate-500 text-sm mt-1 mb-3">AI/DX 솔루션 · 관계자 설명</p><div class="flex flex-wrap gap-3"><img src="assets/images/lenovo1.jpg" alt="레노버" class="schedule-thumb"><img src="assets/images/lenovo2.jpg" alt="레노버2" class="schedule-thumb"></div></div>
+                        <div class="relative pl-8 border-l-2 border-violet-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-cyan-600"></div><h4 class="font-bold text-lg">레노버(Lenovo) 미래센터</h4><p class="text-slate-500 text-sm mt-1 mb-3">AI/DX 솔루션 · 관계자 설명</p><div class="flex flex-wrap gap-3"><img src="assets/images/venue-tech.jpg" alt="레노버" class="schedule-thumb"><img src="assets/images/venue-tech.jpg" alt="레노버2" class="schedule-thumb"></div></div>
                         <div class="relative pl-8 border-l-2 border-violet-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-indigo-500"></div><h4 class="font-bold text-lg">泛微(Weaver) 방문</h4><p class="text-slate-500 text-sm mt-1">중국 기업용 SaaS 시장 분석 · 관계자 설명</p></div>
                         <div class="relative pl-8 border-l-2 border-violet-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-amber-500"></div><h4 class="font-bold text-lg">중식 · 샤브샤브</h4></div>
                         <div class="relative pl-8 border-l-2 border-violet-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-red-500"></div><h4 class="font-bold text-lg">특강 1 · 중국 IT 개론 및 특이점</h4><p class="text-slate-500 text-sm mt-1">지오유 신판수</p></div>
-                        <div class="relative pl-8 border-l-2 border-transparent"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-rose-500"></div><h4 class="font-bold text-lg">특강 2 · 중국 AI 기술 · AI 인프라와 GPU</h4><p class="text-slate-500 text-sm mt-1 mb-3">아이요넷 신동욱 대표</p><img src="assets/images/lecture.jpg" alt="특강" class="schedule-thumb"></div>
+                        <div class="relative pl-8 border-l-2 border-transparent"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-rose-500"></div><h4 class="font-bold text-lg">특강 2 · 중국 AI 기술 · AI 인프라와 GPU</h4><p class="text-slate-500 text-sm mt-1 mb-3">아이요넷 신동욱 대표</p><img src="assets/images/venue-tech.jpg" alt="특강" class="schedule-thumb"></div>
                     </div>
                 </div>
                 <div id="day4" class="tab-content hidden animate-fade-in-up p-6 md:p-8">
@@ -301,7 +303,7 @@
                         <div><h3 class="font-bold text-2xl text-slate-800">동화대 교류 및 시내 탐방</h3><p class="text-emerald-600 font-medium">상해</p></div>
                     </div>
                     <div class="space-y-6">
-                        <div class="relative pl-8 border-l-2 border-emerald-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-cyan-600"></div><h4 class="font-bold text-lg">동화대학교 원장단 및 학생 교류</h4><p class="text-slate-500 text-sm mt-1 mb-3">인공지능 · 정보과학 분야 학생 교류 세션</p><img src="assets/images/donghua.jpg" alt="동화대" class="schedule-thumb"></div>
+                        <div class="relative pl-8 border-l-2 border-emerald-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-cyan-600"></div><h4 class="font-bold text-lg">동화대학교(Donghua University) 캠퍼스 교류</h4><p class="text-slate-500 text-sm mt-1 mb-3">상해 대표 글로벌 교육 허브 · 디자인·경영·AI 융합 교육 현장 교류</p><img src="assets/images/venue-campus.jpg" alt="동화대학교 캠퍼스" class="schedule-thumb"></div>
                         <div class="relative pl-8 border-l-2 border-emerald-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-orange-400"></div><h4 class="font-bold text-lg">중식 · 자유식</h4></div>
                         <div class="relative pl-8 border-l-2 border-transparent"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-slate-400"></div><h4 class="font-bold text-lg">자유시간 및 상해 시내 탐방</h4><p class="text-slate-500 text-sm mt-1">학생 자율 일정 · 호텔 투숙</p></div>
                     </div>
@@ -318,7 +320,7 @@
                                 <p class="font-bold text-slate-800 mb-2">상해 푸동공항 출발 (KE892)</p>
                                 <div class="flex items-center justify-center my-2 text-red-300"><i class="fa-solid fa-arrow-down"></i></div>
                                 <p class="font-black text-slate-800">인천국제공항 도착 후 해산</p>
-                                <img src="assets/images/pvg.jpg" alt="푸동공항" class="schedule-thumb mt-4">
+                                <img src="assets/images/venue-airport.jpg" alt="푸동공항" class="schedule-thumb mt-4">
                             </div>
                         </div>
                     </div>
@@ -336,36 +338,88 @@
         </div>
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
             <article class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
-                <img src="assets/images/alibaba2.jpg" alt="알리바바" class="w-full h-44 object-cover">
-                <div class="p-5"><h3 class="font-bold text-lg text-slate-800">알리바바 본사</h3><p class="text-sm text-slate-600 mt-2">AI가 관리하는 시시 캠퍼스와 딩딩 업무 환경, 전자상거래·클라우드·핀테크 전략을 현장 브리핑으로 듣습니다.</p></div>
+                <img src="assets/images/venue-alibaba-atrium.jpg" alt="알리바바 캠퍼스" class="w-full h-44 object-cover">
+                <div class="p-5"><h3 class="font-bold text-lg text-slate-800">알리바바 본사 · 신유통 생태계</h3><p class="text-sm text-slate-600 mt-2">전자상거래·클라우드의 본산에서 데이터 기반 신유통 전략을 확인하고, 플라이주 AI 호텔·허마 스마트마트로 체험을 이어갑니다.</p></div>
             </article>
             <article class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
-                <img src="assets/images/baidu.jpg" alt="바이두" class="w-full h-44 object-cover">
-                <div class="p-5"><h3 class="font-bold text-lg text-slate-800">바이두 ApolloPark</h3><p class="text-sm text-slate-600 mt-2">L4 무인운전 시스템을 직접 탑승하며 AI 기반 정밀 제어와 센서 안전 기술을 체험합니다.</p></div>
+                <img src="assets/images/venue-smartbus.jpg" alt="스마트버스" class="w-full h-44 object-cover">
+                <div class="p-5"><h3 class="font-bold text-lg text-slate-800">스마트버스 · 바이두 ApolloPark</h3><p class="text-sm text-slate-600 mt-2">항주 L4 스마트버스와 상해 ApolloPark에서 자율주행 모빌리티의 현장 운행·데이터 처리 기술을 실증합니다.</p></div>
             </article>
             <article class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
-                <img src="assets/images/lenovo1.jpg" alt="레노버" class="w-full h-44 object-cover">
-                <div class="p-5"><h3 class="font-bold text-lg text-slate-800">레노버 미래센터</h3><p class="text-sm text-slate-600 mt-2">AI PC·씽크북 등 온디바이스 AI와 기업용 AI 라이브러리 배포 모델을 살펴봅니다.</p></div>
+                <img src="assets/images/venue-tech.jpg" alt="레노버 미래센터" class="w-full h-44 object-cover">
+                <div class="p-5"><h3 class="font-bold text-lg text-slate-800">레노버 미래센터</h3><p class="text-sm text-slate-600 mt-2">온디바이스 AI와 DX 솔루션을 중심으로, 하드웨어 기업의 AI 전환 전략을 관계자 설명과 함께 살펴봅니다.</p></div>
             </article>
             <article class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
-                <img src="assets/images/donghua.jpg" alt="동화대" class="w-full h-44 object-cover">
-                <div class="p-5"><h3 class="font-bold text-lg text-slate-800">동화대학교 교류</h3><p class="text-sm text-slate-600 mt-2">인공지능·정보과학 분야 학생들과의 교류로 글로벌 시야와 네트워크를 넓힙니다.</p></div>
+                <img src="assets/images/venue-campus.jpg" alt="동화대학교" class="w-full h-44 object-cover">
+                <div class="p-5"><h3 class="font-bold text-lg text-slate-800">동화대학교 Academic Visit</h3><p class="text-sm text-slate-600 mt-2">상해 글로벌 교육 허브에서 국제화 커리큘럼·스마트 학습 공간·AI×패션/경영 융합 교육의 방향성을 확인합니다.</p></div>
             </article>
         </div>
     </div>
 </section>
 
-<section id="video" class="py-16 bg-black text-white border-t border-slate-800">
+
+<section id="university" class="py-16 bg-white border-t border-slate-200">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-emerald-600 font-black tracking-widest text-xs uppercase">Academic Visit</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mt-2">상해 동화대학교 (Donghua University)</h2>
+                <p class="text-slate-500 mt-2 text-sm">글로벌 교육 허브이자 디자인·경영·AI 융합 교육의 산실</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-8 items-start">
+                <div class="grid grid-cols-2 gap-3">
+                    <img src="assets/images/venue-campus.jpg" alt="동화대 캠퍼스" class="col-span-2 w-full h-56 object-cover rounded-2xl shadow-md">
+                    <img src="assets/images/donghua-logo.png" alt="동화대학교 로고" class="w-full h-36 object-contain bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                    <img src="assets/images/venue-hotel.jpg" alt="스마트 학습 공간 이미지" class="w-full h-36 object-cover rounded-xl shadow-sm">
+                </div>
+                <div>
+                    <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-5 mb-5">
+                        <h3 class="font-bold text-emerald-800 mb-2">선정 사유</h3>
+                        <p class="text-sm text-slate-700 leading-relaxed">상해의 대표적인 글로벌 교육 허브이자, 디자인·경영·AI가 결합된 미래 융합 교육의 산실입니다. 단순 견학이 아니라 커리큘럼·인프라·산업 융합 방향성을 함께 확인하는 학술 교류 거점입니다.</p>
+                    </div>
+                    <ol class="space-y-4">
+                        <li class="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                            <p class="font-bold text-slate-800">1. 글로벌 교육 허브</p>
+                            <p class="text-sm text-slate-600 mt-1">영어 전용 강의 및 국제화 커리큘럼 운영 현장을 확인합니다.</p>
+                        </li>
+                        <li class="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                            <p class="font-bold text-slate-800">2. 최첨단 인프라</p>
+                            <p class="text-sm text-slate-600 mt-1">현대적 강의동과 스마트 학습 공간을 체험합니다.</p>
+                        </li>
+                        <li class="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                            <p class="font-bold text-slate-800">3. 융합 교육</p>
+                            <p class="text-sm text-slate-600 mt-1">AI 기술이 패션·경영 등 타 산업과 결합되는 교육 방향성을 파악합니다.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="video" class="py-16 bg-slate-900 text-white border-t border-slate-800">
     <div class="container mx-auto px-4">
         <div class="text-center mb-8">
-            <h2 class="text-2xl font-bold">현장 영상 아카이브</h2>
-            <p class="text-sm text-gray-400 mt-2">이번 탐방에서 기록한 하이라이트입니다.</p>
+            <h2 class="text-2xl font-bold">현장 분위기 프리뷰</h2>
+            <p class="text-sm text-slate-400 mt-2">참가자 초상 보호를 위해 방문지·기술 현장 중심으로 구성했습니다.</p>
         </div>
         <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            <div class="rounded-xl overflow-hidden border border-gray-700 bg-slate-900"><video class="w-full aspect-video" controls preload="metadata" src="assets/videos/autonomous.mp4"></video><p class="p-3 text-sm text-slate-300">자율주행 체험</p></div>
-            <div class="rounded-xl overflow-hidden border border-gray-700 bg-slate-900"><video class="w-full aspect-video" controls preload="metadata" src="assets/videos/donghua-exchange.mp4"></video><p class="p-3 text-sm text-slate-300">동화대 국제교류</p></div>
-            <div class="rounded-xl overflow-hidden border border-gray-700 bg-slate-900"><video class="w-full aspect-video" controls preload="metadata" src="assets/videos/robot.mp4"></video><p class="p-3 text-sm text-slate-300">6족 로봇</p></div>
-            <div class="rounded-xl overflow-hidden border border-gray-700 bg-slate-900"><video class="w-full aspect-video" controls preload="metadata" src="assets/videos/robot-dance.mp4"></video><p class="p-3 text-sm text-slate-300">로봇 퍼포먼스</p></div>
+            <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-800">
+                <img src="assets/images/venue-alibaba-atrium.jpg" alt="알리바바 캠퍼스" class="w-full aspect-video object-cover">
+                <p class="p-3 text-sm text-slate-300">알리바바 캠퍼스 · AI 생태계 현장</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-800">
+                <img src="assets/images/venue-smartbus.jpg" alt="스마트버스" class="w-full aspect-video object-cover">
+                <p class="p-3 text-sm text-slate-300">항주 스마트버스 · L4 모빌리티</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-800">
+                <img src="assets/images/venue-mobility.jpg" alt="자율주행" class="w-full aspect-video object-cover">
+                <p class="p-3 text-sm text-slate-300">바이두 Apollo 계열 자율주행 실증</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-800">
+                <img src="assets/images/venue-campus.jpg" alt="대학 캠퍼스" class="w-full aspect-video object-cover">
+                <p class="p-3 text-sm text-slate-300">동화대학교 학술 교류 거점</p>
+            </div>
         </div>
     </div>
 </section>
@@ -551,7 +605,7 @@
     <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-lg border border-green-200 p-8 text-center">
             <h2 class="text-2xl font-bold text-slate-800 mb-2"><i class="fa-solid fa-leaf text-green-600"></i> ESG 실천 대시보드</h2>
-            <p class="text-sm text-slate-500 mb-6">종이 일정표 대신 스마트 가이드북 사용 (총 18명 기준)</p>
+            <p class="text-sm text-slate-500 mb-6">종이 일정표 대신 스마트 가이드북을 사용하는 디지털 전환 사례</p>
             <div class="grid grid-cols-3 gap-4">
                 <div class="bg-green-50 p-4 rounded-2xl border border-green-100"><p class="text-xs text-slate-500 font-bold">종이 절감</p><p class="text-xl font-black">144<span class="text-sm font-medium"> 장</span></p></div>
                 <div class="bg-green-50 p-4 rounded-2xl border border-green-100"><p class="text-xs text-slate-500 font-bold">탄소 감소</p><p class="text-xl font-black">684<span class="text-sm font-medium"> g</span></p></div>
@@ -566,7 +620,7 @@
         <a href="http://tourmaker.kr" target="_blank" rel="noopener" class="inline-block bg-white px-6 py-3 rounded-xl shadow-sm border border-slate-200 mb-6">
             <img src="assets/images/tourmaker-logo.png" alt="Tourmaker" class="h-8 mx-auto">
         </a>
-        <p class="text-xs text-slate-500 max-w-xl mx-auto leading-relaxed">[System Powered by TOURMAKER]<br>본 스마트 가이드북은 <strong>강원대학교 글로벌미래융합대학</strong> 글로벌 패스파인더 프로그램과 <a href="http://tourmaker.kr" class="underline font-bold text-slate-600" target="_blank" rel="noopener">투어메이커</a>의 트래블 테크 제휴로 제작되었습니다.</p>
+        <p class="text-xs text-slate-500 max-w-xl mx-auto leading-relaxed">[System Powered by TOURMAKER]<br>본 페이지는 <strong>강원대학교</strong> 글로벌 패스파인더형 AI 산업 탐방의 디지털 제안·가이드 사례이며 <a href="http://tourmaker.kr" class="underline font-bold text-slate-600" target="_blank" rel="noopener">투어메이커</a>의 트래블 테크 제휴로 제작되었습니다.</p>
         <p class="text-xs text-slate-400 mt-4">&copy; 2026 Tourmaker. All Rights Reserved.</p>
     </div>
 </footer>
@@ -575,7 +629,7 @@
 <div class="print-only bg-white text-black p-4 w-full font-sans" style="max-width:210mm;margin:0 auto;">
     <div class="border-b-2 border-black pb-4 mb-6 text-center">
         <h1 class="text-2xl font-bold mb-2">[강원대 글로벌 패스파인더] 상해·항주 AI 탐방 5일</h1>
-        <p class="text-sm text-gray-600">2026.01.12(월) ~ 01.16(금) | 17+1명 | KE107 / KE892</p>
+        <p class="text-sm text-gray-600">2026.01.12(월) ~ 01.16(금) · 항주·상해 · KE107 / KE892</p>
     </div>
     <table class="w-full text-[12px] border-collapse border border-gray-400 mb-6">
         <thead><tr class="bg-gray-100 text-center"><th class="border border-gray-400 p-2">일자</th><th class="border border-gray-400 p-2">지역</th><th class="border border-gray-400 p-2">상세일정</th><th class="border border-gray-400 p-2">식사/숙박</th></tr></thead>
@@ -794,11 +848,11 @@ const spots = {
 };
 const mapHints = {
     all: '전체 여정: 인천↔항주·상해 항공(점선) + 실제 도로',
-    day1: '1일차: 항주공항 → 전시관 → 허마 → 플라이주',
+    day1: '1일차 현지 줌인: 항주공항 → 전시관 → 허마 → 플라이주',
     day2: '2일차: 알리바바 · 스마트버스 · 상해 이동 · 바이두',
     day3: '3일차: 레노버 · Weaver · 호텔',
     day4: '4일차: 동화대 교류 · 시내',
-    day5: '5일차: 호텔 → 푸동공항 → 인천'
+    day5: '5일차 현지 줌인: 포동호텔 → 푸동공항 (귀국편은 점선)'
 };
 const routes = {
     all: {
@@ -823,7 +877,7 @@ const routes = {
         ]
     },
     day1: {
-        zoom: ['hgh','liu','hema','hotel_hz'], maxZoom: 11,
+        zoom: ['hgh','liu','hema','hotel_hz'], maxZoom: 12, localZoom: true,
         legs: [
             { from:'icn', to:'hgh', mode:'air', color:'#0891b2', label:'KE107' },
             { from:'hgh', to:'liu', mode:'road', color:'#0891b2' },
@@ -856,7 +910,7 @@ const routes = {
         ]
     },
     day5: {
-        zoom: ['hotel_sh','pvg','icn'], maxZoom: 6,
+        zoom: ['hotel_sh','pvg'], maxZoom: 12, localZoom: true,
         legs: [
             { from:'hotel_sh', to:'pvg', mode:'road', color:'#64748b' },
             { from:'pvg', to:'icn', mode:'air', color:'#64748b', label:'KE892' }
@@ -1022,13 +1076,18 @@ async function drawMap(routeKey) {
     if (hintEl) hintEl.textContent = mapHints[routeKey] || '';
     setMapStatus('실제 도로 동선을 불러오는 중...');
     let bounds = L.latLngBounds((routeData.zoom || []).map(key => spots[key].c));
-    currentMap.fitBounds(bounds, { padding: [50, 50], maxZoom: routeData.maxZoom || 11 });
+    currentMap.fitBounds(bounds, { padding: [48, 48], maxZoom: routeData.maxZoom || 11 });
     setTimeout(() => currentMap.invalidateSize(), 120);
     const legs = routeData.legs;
     const paths = await Promise.all(legs.map(leg => resolveLegPath(leg)));
     if (seq !== mapDrawSeq) return;
-    paths.forEach(path => path.forEach(pt => bounds.extend(pt)));
-    currentMap.fitBounds(bounds, { padding: [50, 50], maxZoom: routeData.maxZoom || 11 });
+    if (!routeData.localZoom) {
+        paths.forEach(path => path.forEach(pt => bounds.extend(pt)));
+        currentMap.fitBounds(bounds, { padding: [48, 48], maxZoom: routeData.maxZoom || 11 });
+    } else {
+        // 1·5일차: 항공 점선은 그리되, 화면은 현지 동선만 줌인
+        currentMap.fitBounds(bounds, { padding: [56, 56], maxZoom: routeData.maxZoom || 12 });
+    }
     await new Promise(r => setTimeout(r, 280));
     if (seq !== mapDrawSeq) return;
     const ghost = L.polyline(paths.flat(), { color: '#94a3b8', weight: 4, opacity: 0.22, lineJoin: 'round', lineCap: 'round' }).addTo(currentMap);
