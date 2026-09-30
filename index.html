@@ -59,12 +59,63 @@
         body.event-day section { scroll-margin-top: 148px; }
         #phrase-modal { backdrop-filter: blur(5px); }
         .schedule-thumb { width: 100%; max-width: 14rem; aspect-ratio: 4/3; object-fit: cover; border-radius: .75rem; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(15,23,42,.08); }
-        @media screen { .print-only { display: none !important; } }
+        @media screen { #print-area { display: none !important; } }
         @media print {
-            .no-print, header, #event-day-bar, footer, .print\:hidden { display: none !important; }
-            .print-only { display: block !important; }
-            body { background: #fff; }
+            @page { size: A4 portrait; margin: 10mm 10mm; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            html, body { background: #fff !important; color: #1e293b !important; }
+            header, footer, .print\:hidden, .no-print, #event-day-bar, #toast { display: none !important; }
+            main, body { padding: 0 !important; margin: 0 !important; }
+            #print-area { display: block !important; width: 100%; box-sizing: border-box; }
+            .print-page { display: flex; flex-direction: column; width: 100%; min-height: 277mm; box-sizing: border-box; }
+            .print-page-break { page-break-after: always; break-after: page; }
+            .std-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #004098; padding-bottom: 8px; margin-bottom: 10px; }
+            .std-header img { height: 36px; object-fit: contain; }
+            .std-doc-info { text-align: right; font-size: 11.5px; color: #475569; font-weight: 600; }
+            .std-title { text-align: center; margin-bottom: 8px; }
+            .std-title h1 { font-size: 20px; font-weight: 700; color: #0f172a; margin: 0; letter-spacing: -0.4px; line-height: 1.35; }
+            .std-overview { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; background: #f8fafc !important; border: 1px solid #94a3b8 !important; border-radius: 6px; padding: 8px 14px; margin-bottom: 8px; font-size: 12.5px; }
+            .std-overview div { display: flex; gap: 8px; }
+            .std-overview .label { font-weight: 700; color: #004098; }
+            .std-table { width: 100%; flex: 1 1 auto; border-collapse: collapse; font-size: 12px; table-layout: fixed; border: 2px solid #1e293b !important; margin-bottom: 8px; }
+            .std-table th { border: 1px solid #1e293b !important; background: #f8fafc !important; font-weight: 700; text-align: center; padding: 7px 6px !important; color: #1e293b; font-size: 13px; }
+            .std-table td { border: 1px solid #1e293b !important; padding: 8px 10px !important; vertical-align: top; word-break: keep-all; line-height: 1.48; }
+            .std-table tbody tr { page-break-inside: avoid; break-inside: avoid; }
+            .col-date { width: 14%; text-align: center; font-weight: 700; background: #f8fafc !important; vertical-align: middle; }
+            .col-date .date-sub { display: block; font-size: 11.5px; color: #475569; font-weight: 600; margin-top: 3px; }
+            .col-date .date-city { display: block; margin-top: 6px; font-size: 12px; font-weight: 700; color: #004098; line-height: 1.4; }
+            .col-desc { width: 70%; }
+            .col-meal { width: 16%; text-align: center; vertical-align: middle; }
+            .day-divider td { border-top: 2px solid #1e293b !important; }
+            .time-flow { margin-bottom: 4px; font-weight: 500; }
+            .time-tag { display: inline-block; color: #004098; font-weight: 700; margin-right: 5px; }
+            .highlight { font-weight: 700; color: #0f172a; }
+            .desc-list { list-style: none; margin: 4px 0 0 !important; padding-left: 5px; }
+            .desc-list li { position: relative; padding-left: 14px; margin-bottom: 4px !important; line-height: 1.45; }
+            .desc-list li:last-child { margin-bottom: 0 !important; }
+            .desc-list li::before { content: '■'; font-size: 8px; position: absolute; left: 0; top: 4px; color: #004098; }
+            .desc-note { display: block; font-size: 11px; color: #475569; font-weight: 500; line-height: 1.4; margin-top: 1px; }
+            .hotel-divider { border: 0; border-top: 1px dashed #94a3b8; margin: 7px 0 6px 0; }
+            .hotel-info { font-size: 12.5px; color: #0f172a; }
+            .meal-wrapper { display: flex; flex-direction: column; gap: 8px; justify-content: center; height: 100%; text-align: left; padding-left: 4px; }
+            .meal-simple { display: flex; align-items: flex-start; font-size: 12.5px; color: #1e293b; line-height: 1.4; }
+            .meal-simple strong { color: #004098; margin-right: 4px; width: 22px; flex-shrink: 0; }
+            .remarks { font-size: 11.5px; color: #64748b; text-align: right; font-weight: 500; margin: 0 0 6px; }
+            .footer-box { margin-top: auto; padding-top: 10px; display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; border-top: 1px solid #e2e8f0; }
+            .brand-link { font-size: 11.5px; color: #6c757d; text-decoration: none; }
+            .manager-info { text-align: right; border-left: 3px solid #004098; padding-left: 12px; }
+            .manager-info .names { color: #0f172a; font-weight: 700; font-size: 13.5px; }
+            .print-section-title { font-size: 15px; font-weight: 800; color: #004098; margin: 0 0 12px; border-left: 4px solid #004098; padding-left: 8px; }
+            .print-check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin: 4px 0 16px; flex: 1 1 auto; align-content: stretch; }
+            .print-check-item { display: flex; align-items: center; gap: 10px; font-size: 13px; line-height: 1.4; border: 1px solid #94a3b8; border-radius: 6px; padding: 14px 14px; background: #fff !important; word-break: keep-all; }
+            .print-check-box { width: 16px; height: 16px; border: 1.5px solid #004098; border-radius: 3px; flex-shrink: 0; }
+            .print-qr-panel { display: flex; gap: 16px; align-items: center; border: 2px solid #004098; border-radius: 10px; padding: 16px 18px; background: #f8fafc !important; margin-top: auto; }
+            .print-qr-panel img { width: 128px; height: 128px; flex-shrink: 0; border: 1px solid #e2e8f0; background: #fff; }
+            .print-qr-panel h3 { font-size: 16px; font-weight: bold; color: #004098; margin: 0 0 6px; word-break: keep-all; }
+            .print-qr-panel p { font-size: 12.5px; line-height: 1.5; color: #334155; margin: 0 0 5px; word-break: keep-all; }
+            .print-qr-url { font-size: 12px; font-weight: bold; color: #0f172a; word-break: break-all; }
         }
+        #map-status { left: auto !important; right: 12px !important; top: 12px !important; max-width: min(52%, 280px); text-align: right; }
     </style>
 </head>
 <body class="antialiased pb-20 md:pb-0">
@@ -87,7 +138,9 @@
                 <a href="#map-section" class="px-3 py-2 text-sm font-bold text-purple-600 hover:text-purple-800 rounded-lg"><i class="fa-solid fa-map-location-dot mr-1"></i>동선지도</a>
                 <a href="#schedule" class="px-3 py-2 text-sm font-bold text-slate-800 hover:text-cyan-600 rounded-lg">세부일정</a>
                 <a href="#places" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-cyan-600 rounded-lg">탐방지</a>
+                <a href="#insight" class="px-3 py-2 text-sm font-bold text-rose-600 hover:text-rose-800 rounded-lg">특강</a>
                 <a href="#university" class="px-3 py-2 text-sm font-bold text-emerald-700 hover:text-emerald-900 rounded-lg">대학교류</a>
+                <a href="#hotel" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-cyan-600 rounded-lg">호텔</a>
                 <a href="#video" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-cyan-600 rounded-lg">영상</a>
                 <a href="#widgets" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-cyan-600 rounded-lg">날씨/환율</a>
                 <a href="#china-prep" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-cyan-600 rounded-lg">알리페이</a>
@@ -227,14 +280,15 @@
         <div class="flex flex-wrap justify-center gap-2 mb-6 relative z-20">
             <button onclick="filterMap('all')" id="btn-map-all" class="map-btn bg-purple-600 text-white font-bold px-4 py-2.5 rounded-xl shadow-md border border-purple-600 transition text-sm">전체 여정</button>
             <button onclick="filterMap('day1')" id="btn-map-day1" class="map-btn bg-white text-slate-600 font-bold px-4 py-2.5 rounded-xl shadow-sm border border-slate-200 hover:bg-slate-50 transition text-sm">1일차 항주</button>
-            <button onclick="filterMap('day2')" id="btn-map-day2" class="map-btn bg-white text-slate-600 font-bold px-4 py-2.5 rounded-xl shadow-sm border border-slate-200 hover:bg-slate-50 transition text-sm">2일차 상해이동</button>
+            <button onclick="filterMap('day2hz')" id="btn-map-day2hz" class="map-btn bg-white text-slate-600 font-bold px-4 py-2.5 rounded-xl shadow-sm border border-slate-200 hover:bg-slate-50 transition text-sm">2일차 항주</button>
+            <button onclick="filterMap('day2sh')" id="btn-map-day2sh" class="map-btn bg-white text-slate-600 font-bold px-4 py-2.5 rounded-xl shadow-sm border border-slate-200 hover:bg-slate-50 transition text-sm">2일차 상해</button>
             <button onclick="filterMap('day3')" id="btn-map-day3" class="map-btn bg-white text-slate-600 font-bold px-4 py-2.5 rounded-xl shadow-sm border border-slate-200 hover:bg-slate-50 transition text-sm">3일차 IT탐방</button>
             <button onclick="filterMap('day4')" id="btn-map-day4" class="map-btn bg-white text-slate-600 font-bold px-4 py-2.5 rounded-xl shadow-sm border border-slate-200 hover:bg-slate-50 transition text-sm">4일차 교류</button>
             <button onclick="filterMap('day5')" id="btn-map-day5" class="map-btn bg-white text-slate-600 font-bold px-4 py-2.5 rounded-xl shadow-sm border border-slate-200 hover:bg-slate-50 transition text-sm">5일차 귀국</button>
         </div>
         <div class="max-w-5xl mx-auto border border-slate-200 rounded-2xl p-1 shadow-2xl bg-white relative z-10">
             <div id="map"></div>
-            <div id="map-status" class="absolute top-4 left-4 z-[400] bg-white/90 backdrop-blur px-3 py-1.5 rounded-xl shadow font-bold text-xs text-slate-700 pointer-events-none">
+            <div id="map-status" class="absolute top-3 right-3 z-[400] bg-white/92 backdrop-blur px-3 py-1.5 rounded-xl shadow font-bold text-xs text-slate-700 pointer-events-none">
                 <i class="fa-solid fa-route text-purple-500 mr-1"></i><span id="map-status-text">실제 도로 동선</span>
             </div>
         </div>
@@ -277,11 +331,11 @@
                         <div><h3 class="font-bold text-2xl text-slate-800">항주 AI 핵심 &amp; 상해 이동</h3><p class="text-indigo-600 font-medium">항주 → 상해</p></div>
                     </div>
                     <div class="space-y-6">
-                        <div class="relative pl-8 border-l-2 border-indigo-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-cyan-600"></div><h4 class="font-bold text-lg">알리바바 본사 공식 방문</h4><p class="text-slate-500 text-sm mt-1 mb-3">시시 캠퍼스 · 관계자 설명 및 통역</p><div class="flex flex-wrap gap-3"><img src="assets/images/venue-alibaba-atrium.jpg" alt="알리바바" class="schedule-thumb"><img src="assets/images/venue-alibaba-lobby.jpg" alt="알리바바 강의" class="schedule-thumb"></div></div>
+                        <div class="relative pl-8 border-l-2 border-indigo-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-cyan-600"></div><h4 class="font-bold text-lg">오전 · 알리바바 본사 공식 방문</h4><p class="text-slate-500 text-sm mt-1 mb-3">시시 캠퍼스에서 전자상거래·클라우드·신유통 전략을 관계자 설명과 통역으로 확인합니다.</p><img src="assets/images/venue-alibaba-atrium.jpg" alt="알리바바 본사" class="schedule-thumb"></div>
                         <div class="relative pl-8 border-l-2 border-indigo-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-purple-500"></div><h4 class="font-bold text-lg">스마트버스 탑승</h4><p class="text-slate-500 text-sm mt-1 mb-3">L4 자율주행 12인승 미니버스 체험</p><img src="assets/images/venue-smartbus.jpg" alt="스마트버스" class="schedule-thumb"></div>
                         <div class="relative pl-8 border-l-2 border-indigo-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-orange-500"></div><h4 class="font-bold text-lg">항주 특색요리(동파육) 후 상해 이동</h4><p class="text-slate-500 text-sm mt-1">전용차 이동</p></div>
                         <div class="relative pl-8 border-l-2 border-indigo-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-emerald-500"></div><h4 class="font-bold text-lg">바이두 ApolloPark 무인운전 체험</h4><p class="text-slate-500 text-sm mt-1 mb-3">L4 자율주행 현장 탑승</p><img src="assets/images/venue-mobility.jpg" alt="바이두" class="schedule-thumb"></div>
-                        <div class="relative pl-8 border-l-2 border-transparent"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-slate-400"></div><h4 class="font-bold text-lg">상해 포동 호텔 투숙</h4><p class="text-slate-500 text-sm mt-1">포동 베스트 혹은 동급</p></div>
+                        <div class="relative pl-8 border-l-2 border-transparent"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-slate-400"></div><h4 class="font-bold text-lg">포동 위즈덤로즈 호텔 투숙</h4><p class="text-slate-500 text-sm mt-1">Wisdom Rose Hotel · 푸동공항 인근 · 021-2093-7777</p></div>
                     </div>
                 </div>
                 <div id="day3" class="tab-content hidden animate-fade-in-up p-6 md:p-8">
@@ -290,11 +344,12 @@
                         <div><h3 class="font-bold text-2xl text-slate-800">상해 IT 솔루션 및 전문 강의</h3><p class="text-violet-600 font-medium">상해</p></div>
                     </div>
                     <div class="space-y-6">
-                        <div class="relative pl-8 border-l-2 border-violet-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-cyan-600"></div><h4 class="font-bold text-lg">레노버(Lenovo) 미래센터</h4><p class="text-slate-500 text-sm mt-1 mb-3">AI/DX 솔루션 · 관계자 설명</p><div class="flex flex-wrap gap-3"><img src="assets/images/venue-tech.jpg" alt="레노버" class="schedule-thumb"><img src="assets/images/venue-tech.jpg" alt="레노버2" class="schedule-thumb"></div></div>
-                        <div class="relative pl-8 border-l-2 border-violet-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-indigo-500"></div><h4 class="font-bold text-lg">泛微(Weaver) 방문</h4><p class="text-slate-500 text-sm mt-1">중국 기업용 SaaS 시장 분석 · 관계자 설명</p></div>
+                        <div class="relative pl-8 border-l-2 border-violet-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-cyan-600"></div><h4 class="font-bold text-lg">레노버(Lenovo) 미래센터</h4><p class="text-slate-500 text-sm mt-1 mb-3">온디바이스 AI·DX 솔루션을 관계자 설명과 함께 확인합니다.</p><img src="assets/images/venue-tech.jpg" alt="레노버 미래센터" class="schedule-thumb"></div>
+                        <div class="relative pl-8 border-l-2 border-violet-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-indigo-500"></div><h4 class="font-bold text-lg">泛微(Weaver) 방문</h4><p class="text-slate-500 text-sm mt-1">중국 기업용 SaaS 시장과 HR/OA 솔루션 사례를 살펴봅니다.</p></div>
                         <div class="relative pl-8 border-l-2 border-violet-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-amber-500"></div><h4 class="font-bold text-lg">중식 · 샤브샤브</h4></div>
-                        <div class="relative pl-8 border-l-2 border-violet-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-red-500"></div><h4 class="font-bold text-lg">특강 1 · 중국 IT 개론 및 특이점</h4><p class="text-slate-500 text-sm mt-1">지오유 신판수</p></div>
-                        <div class="relative pl-8 border-l-2 border-transparent"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-rose-500"></div><h4 class="font-bold text-lg">특강 2 · 중국 AI 기술 · AI 인프라와 GPU</h4><p class="text-slate-500 text-sm mt-1 mb-3">아이요넷 신동욱 대표</p><img src="assets/images/venue-tech.jpg" alt="특강" class="schedule-thumb"></div>
+                        <div class="relative pl-8 border-l-2 border-violet-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-red-500"></div><h4 class="font-bold text-lg">특강 1 · ZioYou Software (신판수 대표)</h4><p class="text-slate-500 text-sm mt-1">중국 IT 개론 및 시장의 특이점 · 글로벌 기업의 중국 내 HR/OA 솔루션 구축 사례<br><span class="text-xs text-slate-400">장소: 상해 한인타운 인근</span></p></div>
+                        <div class="relative pl-8 border-l-2 border-transparent"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-rose-500"></div><h4 class="font-bold text-lg">특강 2 · AiyoNet (신동욱 대표)</h4><p class="text-slate-500 text-sm mt-1 mb-3">중국 AI 인프라와 GPU 트렌드 · 클라우드/보안 인사이트<br><span class="text-xs text-slate-400">장소: 상해 한인타운 인근</span></p></div>
+                        <div class="relative pl-8 border-l-2 border-transparent mt-2"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-slate-400"></div><h4 class="font-bold text-lg">호텔 투숙 · 포동 위즈덤로즈 호텔</h4><p class="text-slate-500 text-sm mt-1">Wisdom Rose Hotel · 021-2093-7777 · 푸동공항 접근성</p></div>
                     </div>
                 </div>
                 <div id="day4" class="tab-content hidden animate-fade-in-up p-6 md:p-8">
@@ -305,7 +360,7 @@
                     <div class="space-y-6">
                         <div class="relative pl-8 border-l-2 border-emerald-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-cyan-600"></div><h4 class="font-bold text-lg">동화대학교(Donghua University) 캠퍼스 교류</h4><p class="text-slate-500 text-sm mt-1 mb-3">상해 대표 글로벌 교육 허브 · 디자인·경영·AI 융합 교육 현장 교류</p><img src="assets/images/venue-campus.jpg" alt="동화대학교 캠퍼스" class="schedule-thumb"></div>
                         <div class="relative pl-8 border-l-2 border-emerald-100"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-orange-400"></div><h4 class="font-bold text-lg">중식 · 자유식</h4></div>
-                        <div class="relative pl-8 border-l-2 border-transparent"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-slate-400"></div><h4 class="font-bold text-lg">자유시간 및 상해 시내 탐방</h4><p class="text-slate-500 text-sm mt-1">학생 자율 일정 · 호텔 투숙</p></div>
+                        <div class="relative pl-8 border-l-2 border-transparent"><div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-slate-400"></div><h4 class="font-bold text-lg">자유시간 및 상해 시내 탐방</h4><p class="text-slate-500 text-sm mt-1">자율 일정 후 위즈덤로즈 호텔 투숙</p></div>
                     </div>
                 </div>
                 <div id="day5" class="tab-content hidden animate-fade-in-up p-6 md:p-8">
@@ -339,7 +394,7 @@
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
             <article class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
                 <img src="assets/images/venue-alibaba-atrium.jpg" alt="알리바바 캠퍼스" class="w-full h-44 object-cover">
-                <div class="p-5"><h3 class="font-bold text-lg text-slate-800">알리바바 본사 · 신유통 생태계</h3><p class="text-sm text-slate-600 mt-2">전자상거래·클라우드의 본산에서 데이터 기반 신유통 전략을 확인하고, 플라이주 AI 호텔·허마 스마트마트로 체험을 이어갑니다.</p></div>
+                <div class="p-5"><h3 class="font-bold text-lg text-slate-800">알리바바 본사 · 신유통 생태계</h3><p class="text-sm text-slate-600 mt-2">2일차 오전 알리바바 본사(시시 캠퍼스) 공식 방문으로 데이터 기반 신유통·클라우드 전략을 확인하고, 플라이주·허마 체험과 연결됩니다.</p></div>
             </article>
             <article class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
                 <img src="assets/images/venue-smartbus.jpg" alt="스마트버스" class="w-full h-44 object-cover">
@@ -357,6 +412,52 @@
     </div>
 </section>
 
+
+
+<section id="insight" class="py-16 bg-rose-50 border-t border-rose-100">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10 max-w-3xl mx-auto">
+            <span class="text-rose-600 font-black tracking-widest text-xs uppercase">Industrial Insight</span>
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mt-2">산업 전문가 심층 특강</h2>
+            <p class="text-slate-600 mt-2 text-sm leading-relaxed">단순 견학을 넘어, 현지에서 기업을 운영하는 대표급 전문가를 초빙해 심도 있는 세미나를 진행합니다. 특강 장소는 상해 한인타운 인근에서 진행되었습니다.</p>
+        </div>
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
+            <article class="bg-white rounded-2xl border border-rose-100 shadow-sm p-6">
+                <div class="text-xs font-bold text-rose-600 mb-2">IT / 소프트웨어</div>
+                <h3 class="text-xl font-bold text-slate-800 mb-1">ZioYou Software</h3>
+                <p class="text-sm font-semibold text-slate-500 mb-3">신판수 대표</p>
+                <p class="text-sm text-slate-700 leading-relaxed"><strong>주제:</strong> 중국 IT 개론 및 시장의 특이점<br>글로벌 기업의 중국 내 HR/OA 솔루션 구축 사례를 중심으로, 현지 소프트웨어 시장 구조와 실무 인사이트를 공유합니다.</p>
+            </article>
+            <article class="bg-white rounded-2xl border border-rose-100 shadow-sm p-6">
+                <div class="text-xs font-bold text-indigo-600 mb-2">AI / 인프라</div>
+                <h3 class="text-xl font-bold text-slate-800 mb-1">AiyoNet</h3>
+                <p class="text-sm font-semibold text-slate-500 mb-3">신동욱 대표</p>
+                <p class="text-sm text-slate-700 leading-relaxed"><strong>주제:</strong> 중국 AI 인프라와 GPU 트렌드<br>15년차 인프라 전문가의 클라우드·보안 관점으로, AI 연산 자원과 현지 인프라 전략을 점검합니다.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="hotel" class="py-16 bg-white border-t border-slate-200">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-8">
+            <span class="text-violet-600 font-black tracking-widest text-xs uppercase">STAY</span>
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mt-2">숙박 안내</h2>
+        </div>
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
+            <div class="bg-slate-50 rounded-2xl border border-slate-100 p-6">
+                <h3 class="font-bold text-lg text-slate-800 mb-2">1일차 · 항주 플라이주(FlyZoo) AI 호텔</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">알리바바 AI 무인화 호텔. 안면인식 체크인, 객실 AI 스피커(티몰 지니), 로봇 서비스를 직접 체험합니다.</p>
+            </div>
+            <div class="bg-violet-50 rounded-2xl border border-violet-100 p-6">
+                <h3 class="font-bold text-lg text-slate-800 mb-2">2~4일차 · 포동 위즈덤로즈 호텔</h3>
+                <p class="text-sm text-slate-700 font-semibold mb-1">Wisdom Rose Hotel</p>
+                <p class="text-sm text-slate-600 leading-relaxed mb-2">푸동공항 접근성이 좋은 포동 숙소로, 바이두·레노버·특강·동화대 일정의 거점입니다.</p>
+                <p class="text-sm text-slate-800"><i class="fa-solid fa-phone text-violet-600 mr-1"></i> 021-2093-7777</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section id="university" class="py-16 bg-white border-t border-slate-200">
     <div class="container mx-auto px-4">
@@ -397,29 +498,23 @@
     </div>
 </section>
 
-<section id="video" class="py-16 bg-slate-900 text-white border-t border-slate-800">
+<section id="video" class="py-16 bg-black text-white border-t border-slate-800">
     <div class="container mx-auto px-4">
         <div class="text-center mb-8">
-            <h2 class="text-2xl font-bold">현장 분위기 프리뷰</h2>
-            <p class="text-sm text-slate-400 mt-2">참가자 초상 보호를 위해 방문지·기술 현장 중심으로 구성했습니다.</p>
+            <h2 class="text-2xl font-bold">홍보영상 · 현장 하이라이트</h2>
+            <p class="text-sm text-gray-400 mt-2">프로그램 소개 영상과 기술 현장 클립입니다.</p>
+        </div>
+        <div class="max-w-5xl mx-auto mb-8">
+            <div class="aspect-video rounded-2xl overflow-hidden border border-gray-700 shadow-xl">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/1E-Vp61P_Sk" title="글로벌 패스파인더 홍보영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <p class="p-3 text-sm text-slate-300 text-center">강원대 글로벌 패스파인더 홍보영상</p>
         </div>
         <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-800">
-                <img src="assets/images/venue-alibaba-atrium.jpg" alt="알리바바 캠퍼스" class="w-full aspect-video object-cover">
-                <p class="p-3 text-sm text-slate-300">알리바바 캠퍼스 · AI 생태계 현장</p>
-            </div>
-            <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-800">
-                <img src="assets/images/venue-smartbus.jpg" alt="스마트버스" class="w-full aspect-video object-cover">
-                <p class="p-3 text-sm text-slate-300">항주 스마트버스 · L4 모빌리티</p>
-            </div>
-            <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-800">
-                <img src="assets/images/venue-mobility.jpg" alt="자율주행" class="w-full aspect-video object-cover">
-                <p class="p-3 text-sm text-slate-300">바이두 Apollo 계열 자율주행 실증</p>
-            </div>
-            <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-800">
-                <img src="assets/images/venue-campus.jpg" alt="대학 캠퍼스" class="w-full aspect-video object-cover">
-                <p class="p-3 text-sm text-slate-300">동화대학교 학술 교류 거점</p>
-            </div>
+            <div class="rounded-xl overflow-hidden border border-gray-700 bg-slate-900"><video class="w-full aspect-video" controls preload="metadata" src="assets/videos/autonomous.mp4"></video><p class="p-3 text-sm text-slate-300">자율주행 현장</p></div>
+            <div class="rounded-xl overflow-hidden border border-gray-700 bg-slate-900"><video class="w-full aspect-video" controls preload="metadata" src="assets/videos/donghua-exchange.mp4"></video><p class="p-3 text-sm text-slate-300">동화대 국제교류</p></div>
+            <div class="rounded-xl overflow-hidden border border-gray-700 bg-slate-900"><video class="w-full aspect-video" controls preload="metadata" src="assets/videos/robot.mp4"></video><p class="p-3 text-sm text-slate-300">6족 로봇</p></div>
+            <div class="rounded-xl overflow-hidden border border-gray-700 bg-slate-900"><video class="w-full aspect-video" controls preload="metadata" src="assets/videos/robot-dance.mp4"></video><p class="p-3 text-sm text-slate-300">로봇 퍼포먼스</p></div>
         </div>
     </div>
 </section>
@@ -626,22 +721,135 @@
 </footer>
 </div>
 
-<div class="print-only bg-white text-black p-4 w-full font-sans" style="max-width:210mm;margin:0 auto;">
-    <div class="border-b-2 border-black pb-4 mb-6 text-center">
-        <h1 class="text-2xl font-bold mb-2">[강원대 글로벌 패스파인더] 상해·항주 AI 탐방 5일</h1>
-        <p class="text-sm text-gray-600">2026.01.12(월) ~ 01.16(금) · 항주·상해 · KE107 / KE892</p>
+
+<div id="print-area">
+    <div class="print-page print-page-break">
+        <div class="std-header">
+            <div class="logo"><img src="assets/images/tourmaker-logo.png" alt="투어메이커"></div>
+            <div class="std-doc-info">문서번호: TM-260112-KWU · 1/2</div>
+        </div>
+        <div class="std-title">
+            <h1>[강원대학교] 글로벌 패스파인더 상해·항주 4박 5일 일정표</h1>
+        </div>
+        <div class="std-overview">
+            <div><span class="label">행사기간</span> 2026. 01. 12 (월) ~ 01. 16 (금)</div>
+            <div><span class="label">이용항공</span> 대한항공 (KE107 / KE892)</div>
+            <div><span class="label">숙박</span> 플라이주 1박 · 위즈덤로즈 3박</div>
+        </div>
+        <table class="std-table">
+            <thead>
+                <tr>
+                    <th class="col-date">일자</th>
+                    <th class="col-desc">상세 일정</th>
+                    <th class="col-meal">식사</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="day-divider">
+                    <td class="col-date"><strong>1일차</strong><span class="date-sub">1/12 (월)</span><span class="date-city">인천 · 항주</span></td>
+                    <td class="col-desc">
+                        <div class="time-flow"><span class="time-tag">09:20</span> 인천 출발 (KE107) → <span class="time-tag">10:55</span> 항주 도착</div>
+                        <ul class="desc-list">
+                            <li><span class="highlight">류샤오롱 라이프 전시관</span><span class="desc-note">관계자 설명 및 통역</span></li>
+                            <li><span class="highlight">허마 스마트마트</span><span class="desc-note">안면인식 결제 · 자동 물류 · O2O 신유통</span></li>
+                        </ul>
+                        <hr class="hotel-divider">
+                        <div class="hotel-info"><strong>호텔명 : 항주 플라이주(FlyZoo) AI 호텔</strong></div>
+                    </td>
+                    <td class="col-meal"><div class="meal-wrapper"><div class="meal-simple"><strong>조:</strong> ×</div><div class="meal-simple"><strong>중:</strong> 사천요리</div><div class="meal-simple"><strong>석:</strong> 호텔/현지</div></div></td>
+                </tr>
+                <tr class="day-divider">
+                    <td class="col-date"><strong>2일차</strong><span class="date-sub">1/13 (화)</span><span class="date-city">항주 · 상해</span></td>
+                    <td class="col-desc">
+                        <ul class="desc-list">
+                            <li><span class="highlight">오전 알리바바 본사</span> 공식 방문<span class="desc-note">시시 캠퍼스 · 신유통/클라우드 전략</span></li>
+                            <li><span class="highlight">스마트버스</span> L4 자율주행 체험</li>
+                            <li>항주 특색요리(동파육) 후 상해 이동</li>
+                            <li><span class="highlight">바이두 ApolloPark</span> 무인운전 체험</li>
+                        </ul>
+                        <hr class="hotel-divider">
+                        <div class="hotel-info"><strong>호텔명 : 포동 위즈덤로즈 호텔 (Wisdom Rose) · 021-2093-7777</strong></div>
+                    </td>
+                    <td class="col-meal"><div class="meal-wrapper"><div class="meal-simple"><strong>조:</strong> 호텔식</div><div class="meal-simple"><strong>중:</strong> 동파육</div><div class="meal-simple"><strong>석:</strong> 현지식</div></div></td>
+                </tr>
+                <tr class="day-divider">
+                    <td class="col-date"><strong>3일차</strong><span class="date-sub">1/14 (수)</span><span class="date-city">상해</span></td>
+                    <td class="col-desc">
+                        <ul class="desc-list">
+                            <li><span class="highlight">레노버 미래센터</span> · AI/DX 솔루션</li>
+                            <li><span class="highlight">泛微(Weaver)</span> 기업용 SaaS</li>
+                            <li><span class="highlight">특강 1</span> ZioYou 신판수 · 중국 IT 개론 및 시장 특이점<span class="desc-note">한인타운 인근</span></li>
+                            <li><span class="highlight">특강 2</span> AiyoNet 신동욱 · AI 인프라와 GPU 트렌드<span class="desc-note">한인타운 인근</span></li>
+                        </ul>
+                        <hr class="hotel-divider">
+                        <div class="hotel-info"><strong>호텔명 : 포동 위즈덤로즈 호텔 (Wisdom Rose)</strong></div>
+                    </td>
+                    <td class="col-meal"><div class="meal-wrapper"><div class="meal-simple"><strong>조:</strong> 호텔식</div><div class="meal-simple"><strong>중:</strong> 샤브</div><div class="meal-simple"><strong>석:</strong> 호텔/현지</div></div></td>
+                </tr>
+                <tr class="day-divider">
+                    <td class="col-date"><strong>4일차</strong><span class="date-sub">1/15 (목)</span><span class="date-city">상해</span></td>
+                    <td class="col-desc">
+                        <ul class="desc-list">
+                            <li><span class="highlight">동화대학교</span> 캠퍼스 교류<span class="desc-note">글로벌 교육 허브 · AI×패션/경영 융합</span></li>
+                            <li>상해 시내 자유 탐방</li>
+                        </ul>
+                        <hr class="hotel-divider">
+                        <div class="hotel-info"><strong>호텔명 : 포동 위즈덤로즈 호텔 (Wisdom Rose)</strong></div>
+                    </td>
+                    <td class="col-meal"><div class="meal-wrapper"><div class="meal-simple"><strong>조:</strong> 호텔식</div><div class="meal-simple"><strong>중:</strong> 자유식</div><div class="meal-simple"><strong>석:</strong> 자유식</div></div></td>
+                </tr>
+                <tr class="day-divider">
+                    <td class="col-date"><strong>5일차</strong><span class="date-sub">1/16 (금)</span><span class="date-city">상해 · 인천</span></td>
+                    <td class="col-desc">
+                        <div class="time-flow">호텔 조식 후 푸동공항 이동</div>
+                        <div class="time-flow"><span class="time-tag">12:00</span> 상해 푸동 출발 (KE892)</div>
+                        <div class="time-flow"><span class="time-tag">15:20</span> 인천 도착 후 해산</div>
+                    </td>
+                    <td class="col-meal"><div class="meal-wrapper"><div class="meal-simple"><strong>조:</strong> 호텔식</div><div class="meal-simple"><strong>중:</strong> 기내/개별</div><div class="meal-simple"><strong>석:</strong> ×</div></div></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="remarks">※ 상기 일정은 항공기 연발착 및 현지 사정에 따라 다소 변경될 수 있습니다.</div>
+        <div class="footer-box">
+            <a href="http://tourmaker.kr" class="brand-link">[System Powered by TOURMAKER]</a>
+            <div class="manager-info"><div class="names">담당자 : 이재명 010-9443-7881 · 조혁 010-4249-4026</div></div>
+        </div>
     </div>
-    <table class="w-full text-[12px] border-collapse border border-gray-400 mb-6">
-        <thead><tr class="bg-gray-100 text-center"><th class="border border-gray-400 p-2">일자</th><th class="border border-gray-400 p-2">지역</th><th class="border border-gray-400 p-2">상세일정</th><th class="border border-gray-400 p-2">식사/숙박</th></tr></thead>
-        <tbody>
-            <tr><td class="border border-gray-400 p-2 text-center font-bold">1일차<br>1/12</td><td class="border border-gray-400 p-2 text-center">항주</td><td class="border border-gray-400 p-2">KE107 항주 도착 · 류샤오롱 전시관 · 허마 마트 · 플라이주 호텔</td><td class="border border-gray-400 p-2 text-center">중:사천<br>호텔:플라이주</td></tr>
-            <tr><td class="border border-gray-400 p-2 text-center font-bold">2일차<br>1/13</td><td class="border border-gray-400 p-2 text-center">항주<br>상해</td><td class="border border-gray-400 p-2">알리바바 본사 · 스마트버스 · 상해 이동 · 바이두 ApolloPark</td><td class="border border-gray-400 p-2 text-center">중:동파육<br>호텔:포동</td></tr>
-            <tr><td class="border border-gray-400 p-2 text-center font-bold">3일차<br>1/14</td><td class="border border-gray-400 p-2 text-center">상해</td><td class="border border-gray-400 p-2">레노버 미래센터 · 泛微 · IT/AI 특강</td><td class="border border-gray-400 p-2 text-center">중:샤브<br>호텔:포동</td></tr>
-            <tr><td class="border border-gray-400 p-2 text-center font-bold">4일차<br>1/15</td><td class="border border-gray-400 p-2 text-center">상해</td><td class="border border-gray-400 p-2">동화대 교류 · 자유 탐방</td><td class="border border-gray-400 p-2 text-center">중:자유<br>호텔:포동</td></tr>
-            <tr><td class="border border-gray-400 p-2 text-center font-bold">5일차<br>1/16</td><td class="border border-gray-400 p-2 text-center">상해<br>인천</td><td class="border border-gray-400 p-2">푸동공항 출발 KE892 · 인천 도착 해산</td><td class="border border-gray-400 p-2 text-center">조:호텔</td></tr>
-        </tbody>
-    </table>
-    <p class="text-[11px] text-gray-500">긴급: 이재명 010-9443-7881 / 조혁 010-4249-4026 / 총영사관 +86-138-1650-9503</p>
+
+    <div class="print-page">
+        <div class="std-header">
+            <div class="logo"><img src="assets/images/tourmaker-logo.png" alt="투어메이커"></div>
+            <div class="std-doc-info">문서번호: TM-260112-KWU · 2/2</div>
+        </div>
+        <div class="std-title"><h1>해외여행 준비물 체크리스트</h1></div>
+        <p class="print-section-title">출국 전 확인</p>
+        <div class="print-check-grid">
+            <div class="print-check-item"><span class="print-check-box"></span><span>여권 (유효기간 6개월 이상)</span></div>
+            <div class="print-check-item"><span class="print-check-box"></span><span>항공권 E-티켓 / 예약 확인서</span></div>
+            <div class="print-check-item"><span class="print-check-box"></span><span>알리페이·위챗페이 설치 및 카드 연동</span></div>
+            <div class="print-check-item"><span class="print-check-box"></span><span>해외 사용 가능 신용카드</span></div>
+            <div class="print-check-item"><span class="print-check-box"></span><span>멀티 어댑터 / 변환 플러그</span></div>
+            <div class="print-check-item"><span class="print-check-box"></span><span>보조배터리 (기내 휴대)</span></div>
+            <div class="print-check-item"><span class="print-check-box"></span><span>개인 상비약 · 마스크</span></div>
+            <div class="print-check-item"><span class="print-check-box"></span><span>방한용 외투 · 편한 신발 (1월)</span></div>
+            <div class="print-check-item"><span class="print-check-box"></span><span>로밍 또는 VPN 준비</span></div>
+            <div class="print-check-item"><span class="print-check-box"></span><span>여권 사본 · 비상연락처 메모</span></div>
+            <div class="print-check-item"><span class="print-check-box"></span><span>개인 세면도구</span></div>
+            <div class="print-check-item"><span class="print-check-box"></span><span>노트북/태블릿 (특강·기록용)</span></div>
+        </div>
+        <div class="print-qr-panel">
+            <img src="assets/images/guidebook-qr.png" alt="스마트 가이드북 QR코드" width="128" height="128">
+            <div>
+                <h3>스마트 가이드북</h3>
+                <p>QR을 스캔하면 상세 일정·동선 지도·특강 안내·준비물 체크·중국어 회화를 휴대폰에서 바로 확인할 수 있습니다.</p>
+                <p class="print-qr-url">https://indadady.github.io/260112_Kangwon/</p>
+            </div>
+        </div>
+        <div class="footer-box">
+            <a href="http://tourmaker.kr" class="brand-link">[System Powered by TOURMAKER]</a>
+            <div class="manager-info"><div class="names">담당자 : 이재명 010-9443-7881 · 조혁 010-4249-4026</div></div>
+        </div>
+    </div>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -680,9 +888,10 @@ function goToTodaySchedule() {
     document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth' });
 }
 function goToTodayRoute() {
-    const dayKey = getTodayDayKey();
-    if (dayKey) filterMap(dayKey);
-    document.getElementById('map-section')?.scrollIntoView({ behavior: 'smooth' });
+            const dayKey = getTodayDayKey();
+            if (dayKey) filterMap(dayKey);
+            document.getElementById('map-section')?.scrollIntoView({ behavior: 'smooth' });
+        });
 }
 function initEventDayUI() {
     const bar = document.getElementById('event-day-bar');
@@ -840,7 +1049,8 @@ const spots = {
     ali: { c:[30.2805,120.0270], t:'알리바바 본사', col:'#f97316', i:'🏢' },
     bus: { c:[30.2768,120.0295], t:'스마트버스', col:'#f97316', i:'🚌' },
     baidu: { c:[31.2816,121.1684], t:'바이두 Apollo', col:'#4f46e5', i:'🤖' },
-    hotel_sh: { c:[31.2358,121.5055], t:'상해 포동호텔', col:'#8b5cf6', i:'🏨' },
+    hotel_sh: { c:[31.0916,121.7177], t:'위즈덤로즈 호텔', col:'#8b5cf6', i:'🏨' },
+    lecture: { c:[31.1935,121.4090], t:'한인타운 특강', col:'#e11d48', i:'🎙️' },
     lenovo: { c:[31.2058,121.6089], t:'레노버 미래센터', col:'#4f46e5', i:'💻' },
     weaver: { c:[31.2035,121.6025], t:'泛微 Weaver', col:'#4f46e5', i:'📊' },
     donghua: { c:[31.2218,121.4155], t:'동화대학교', col:'#10b981', i:'🎓' },
@@ -849,10 +1059,12 @@ const spots = {
 const mapHints = {
     all: '전체 여정: 인천↔항주·상해 항공(점선) + 실제 도로',
     day1: '1일차 현지 줌인: 항주공항 → 전시관 → 허마 → 플라이주',
-    day2: '2일차: 알리바바 · 스마트버스 · 상해 이동 · 바이두',
-    day3: '3일차: 레노버 · Weaver · 호텔',
+    day2: '2일차: 항주 줌인 후 상해 도착 줌인',
+    day2hz: '2일차 항주 줌인: 플라이주 → 알리바바 → 스마트버스',
+    day2sh: '2일차 상해 줌인: 바이두 Apollo → 위즈덤로즈 호텔',
+    day3: '3일차: 레노버 · Weaver · 한인타운 특강',
     day4: '4일차: 동화대 교류 · 시내',
-    day5: '5일차 현지 줌인: 포동호텔 → 푸동공항 (귀국편은 점선)'
+    day5: '5일차 현지 줌인: 위즈덤로즈 → 푸동공항 (귀국편은 점선)'
 };
 const routes = {
     all: {
@@ -869,7 +1081,8 @@ const routes = {
             { from:'baidu', to:'hotel_sh', mode:'road', color:'#f97316' },
             { from:'hotel_sh', to:'lenovo', mode:'road', color:'#4f46e5' },
             { from:'lenovo', to:'weaver', mode:'road', color:'#4f46e5' },
-            { from:'weaver', to:'hotel_sh', mode:'road', color:'#4f46e5' },
+            { from:'weaver', to:'lecture', mode:'road', color:'#e11d48' },
+            { from:'lecture', to:'hotel_sh', mode:'road', color:'#4f46e5' },
             { from:'hotel_sh', to:'donghua', mode:'road', color:'#10b981' },
             { from:'donghua', to:'hotel_sh', mode:'road', color:'#10b981' },
             { from:'hotel_sh', to:'pvg', mode:'road', color:'#64748b' },
@@ -886,20 +1099,29 @@ const routes = {
         ]
     },
     day2: {
-        zoom: ['hotel_hz','ali','baidu','hotel_sh'], maxZoom: 8,
+        // 당일 버튼용: 항주 줌인 → 상해 줌인 순차 재생
+        sequence: ['day2hz', 'day2sh']
+    },
+    day2hz: {
+        zoom: ['hotel_hz','ali','bus'], maxZoom: 12, localZoom: true,
         legs: [
             { from:'hotel_hz', to:'ali', mode:'road', color:'#f97316' },
-            { from:'ali', to:'bus', mode:'road', color:'#f97316' },
-            { from:'bus', to:'baidu', mode:'road', color:'#f97316' },
-            { from:'baidu', to:'hotel_sh', mode:'road', color:'#f97316' }
+            { from:'ali', to:'bus', mode:'road', color:'#f97316' }
+        ]
+    },
+    day2sh: {
+        zoom: ['baidu','hotel_sh','pvg'], maxZoom: 11, localZoom: true,
+        legs: [
+            { from:'baidu', to:'hotel_sh', mode:'road', color:'#f97316', label:'바이두 → 위즈덤로즈' }
         ]
     },
     day3: {
-        zoom: ['hotel_sh','lenovo','weaver'], maxZoom: 12,
+        zoom: ['hotel_sh','lenovo','weaver','lecture'], maxZoom: 10, localZoom: true,
         legs: [
             { from:'hotel_sh', to:'lenovo', mode:'road', color:'#4f46e5' },
             { from:'lenovo', to:'weaver', mode:'road', color:'#4f46e5' },
-            { from:'weaver', to:'hotel_sh', mode:'road', color:'#4f46e5' }
+            { from:'weaver', to:'lecture', mode:'road', color:'#e11d48' },
+            { from:'lecture', to:'hotel_sh', mode:'road', color:'#4f46e5' }
         ]
     },
     day4: {
@@ -1157,14 +1379,39 @@ function initMap(initialKey) {
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
         maxZoom: 19, attribution: 'Tiles &copy; Esri'
     }).addTo(currentMap);
-    const startKey = initialKey || getTodayDayKey() || (isMobileView() ? 'day1' : 'all');
+    let startKey = initialKey || getTodayDayKey() || (isMobileView() ? 'day1' : 'all');
+    if (startKey === 'day2') {
+        playRouteSequence(['day2hz', 'day2sh']);
+        return;
+    }
     setMapBtn(startKey);
     drawMap(startKey);
 }
+async function playRouteSequence(keys) {
+    for (let i = 0; i < keys.length; i++) {
+        const key = keys[i];
+        setMapBtn(key);
+        await drawMap(key);
+        if (i < keys.length - 1) await new Promise(r => setTimeout(r, isMobileView() ? 700 : 450));
+    }
+}
 window.filterMap = function(day) {
+    const route = routes[day];
+    if (route && route.sequence) {
+        if (!currentMap) initMap(route.sequence[0]);
+        playRouteSequence(route.sequence);
+        return;
+    }
     setMapBtn(day);
     if (!currentMap) { initMap(day); return; }
     drawMap(day);
+};
+window.goToTodayRoute = function() {
+    const dayKey = getTodayDayKey();
+    if (!dayKey) return;
+    // day2는 항주→상해 순차 줌인
+    filterMap(dayKey === 'day2' ? 'day2' : dayKey);
+    document.getElementById('map-section')?.scrollIntoView({ behavior: 'smooth' });
 };
 document.addEventListener('DOMContentLoaded', () => {
     setDDayLogic();
